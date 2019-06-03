@@ -494,7 +494,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.14_L1_Ensure_Create_permanent_
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.2.15_L1_Configure_Create_symbolic_links" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.2.15_L1_Configure_Create_symbolic_links" do
   title "(L1) Configure 'Create symbolic links'"
   desc  "
     This policy setting determines which users can create symbolic links. In Windows Vista, existing NTFS file system objects, such as files and folders, can be accessed by referring to a new kind of file system object called a symbolic link. A symbolic link is a pointer (much like a shortcut or .lnk file) to another file system object, which can be a file, folder, shortcut or another symbolic link. The difference between a shortcut and a symbolic link is that a shortcut only works from within the Windows shell. To other programs and applications, shortcuts are just another file, whereas with symbolic links, the concept of a shortcut is implemented as a feature of the NTFS file system.
@@ -645,7 +645,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.20_L1_Ensure_Deny_log_on_local
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.2.21_L1_Ensure_Deny_log_on_through_Remote_Desktop_Services_to_include_Guests_Local_account" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.2.21_L1_Ensure_Deny_log_on_through_Remote_Desktop_Services_to_include_Guests_Local_account" do
   title "(L1) Ensure 'Deny log on through Remote Desktop Services' to include 'Guests, Local account'"
   desc  "
     This policy setting determines whether users can log on as Terminal Services clients. After the baseline member server is joined to a domain environment, there is no need to use local accounts to access the server from the network. Domain accounts can access the server for administration and end-user processing.
@@ -803,7 +803,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.28_L1_Ensure_Lock_pages_in_mem
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.2.30_L1_Configure_Manage_auditing_and_security_log" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.2.30_L1_Configure_Manage_auditing_and_security_log" do
   title "(L1) Configure 'Manage auditing and security log'"
   desc  "
     This policy setting determines which users can change the auditing options for files and directories and clear the Security log.
@@ -1012,7 +1012,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.40_L1_Ensure_Take_ownership_of
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.1_L1_Ensure_Accounts_Administrator_account_status_is_set_to_Disabled" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.1_L1_Ensure_Accounts_Administrator_account_status_is_set_to_Disabled" do
   title "(L1) Ensure 'Accounts: Administrator account status' is set to 'Disabled'"
   desc  "
     This policy setting enables or disables the Administrator account during normal operation. When a computer is booted into safe mode, the Administrator account is always enabled, regardless of how this setting is configured. Note that this setting will have no impact when applied to the domain controller organizational unit via group policy because domain controllers have no local account database. It can be configured at the domain level via group policy, similar to account lockout and password policy settings.
@@ -1082,7 +1082,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.4_L1_Ensure_Accounts_Limit_l
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.5_L1_Configure_Accounts_Rename_administrator_account" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.5_L1_Configure_Accounts_Rename_administrator_account" do
   title "(L1) Configure 'Accounts: Rename administrator account'"
   desc  "
     The built-in local administrator account is a well-known account name that attackers will target. It is recommended to choose another name for this account, and to avoid names that denote administrative or elevated access accounts. Be sure to also change the default description for the local administrator (through the Computer Management console). On Domain Controllers, since they do not have their own local accounts, this rule refers to the built-in Administrator account that was established when the domain was first created.
@@ -1097,7 +1097,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.5_L1_Configure_Accounts_Rena
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.6_L1_Configure_Accounts_Rename_guest_account" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.6_L1_Configure_Accounts_Rename_guest_account" do
   title "(L1) Configure 'Accounts: Rename guest account'"
   desc  "
     The built-in local guest account is another well-known name to attackers. It is recommended to rename this account to something that does not indicate its purpose. Even if you disable this account, which is recommended, ensure that you rename it for added security. On Domain Controllers, since they do not have their own local accounts, this rule refers to the built-in Guest account that was established when the domain was first created.
@@ -1651,7 +1651,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.10.5_L1_Ensure_Network_access_
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_2.3.10.6_L1_Configure_Network_access_Named_Pipes_that_can_be_accessed_anonymously" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_2.3.10.6_L1_Configure_Network_access_Named_Pipes_that_can_be_accessed_anonymously" do
   title "(L1) Configure 'Network access: Named Pipes that can be accessed anonymously'"
   desc  "
     This policy setting determines which communication sessions, or pipes, will have attributes and permissions that allow anonymous access.
@@ -2613,7 +2613,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_9.3.4_L1_Ensure_Windows_Firewall_P
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_9.3.5_L1_Ensure_Windows_Firewall_Public_Settings_Apply_local_firewall_rules_is_set_to_No" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_9.3.5_L1_Ensure_Windows_Firewall_Public_Settings_Apply_local_firewall_rules_is_set_to_No" do
   title "(L1) Ensure 'Windows Firewall: Public: Settings: Apply local firewall rules' is set to 'No'"
   desc  "
     This setting controls whether local administrators are allowed to create local firewall rules that apply together with firewall rules configured by Group Policy.
@@ -2629,7 +2629,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_9.3.5_L1_Ensure_Windows_Firewall_P
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_9.3.6_L1_Ensure_Windows_Firewall_Public_Settings_Apply_local_connection_security_rules_is_set_to_No" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_9.3.6_L1_Ensure_Windows_Firewall_Public_Settings_Apply_local_connection_security_rules_is_set_to_No" do
   title "(L1) Ensure 'Windows Firewall: Public: Settings: Apply local connection security rules' is set to 'No'"
   desc  "
     This setting controls whether local administrators are allowed to create connection security rules that apply together with connection security rules configured by Group Policy.
@@ -3261,7 +3261,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.1.2.1_L1_Ensure_Allow_Input_Per
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_18.2.1_L1_Ensure_LAPS_AdmPwd_GPO_Extension__CSE_is_installed_MS_only" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_18.2.1_L1_Ensure_LAPS_AdmPwd_GPO_Extension__CSE_is_installed_MS_only" do
   title "(L1) Ensure LAPS AdmPwd GPO Extension / CSE is installed (MS only)"
   desc  "
     In May 2015, Microsoft released the Local Administrator Password Solution (LAPS) tool, which is free and supported software that allows an organization to automatically set randomized and unique local Administrator account passwords on domain-attached workstations and member servers. The passwords are stored in a confidential attribute of the domain computer account and can be retrieved from Active Directory by approved Sysadmins when needed.
@@ -3533,7 +3533,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.3.12_L1_Ensure_MSS_WarningLevel
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_18.4.4.1_L1_Set_NetBIOS_node_type_to_P-node_Ensure_NetBT_Parameter_NodeType_is_set_to_0x2_2_MS_Only" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_18.4.4.1_L1_Set_NetBIOS_node_type_to_P-node_Ensure_NetBT_Parameter_NodeType_is_set_to_0x2_2_MS_Only" do
   title "(L1) Set 'NetBIOS node type' to 'P-node' (Ensure NetBT Parameter 'NodeType' is set to '0x2 (2)') (MS Only)"
   desc  "
     This parameter determines which method NetBIOS over TCP/IP (NetBT) will use to register and resolve names.
@@ -3681,7 +3681,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.4.21.1_L1_Ensure_Minimize_the_n
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_18.6.1_L1_Ensure_Apply_UAC_restrictions_to_local_accounts_on_network_logons_is_set_to_Enabled_MS_only" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_18.6.1_L1_Ensure_Apply_UAC_restrictions_to_local_accounts_on_network_logons_is_set_to_Enabled_MS_only" do
   title "(L1) Ensure 'Apply UAC restrictions to local accounts on network logons' is set to 'Enabled' (MS only)"
   desc  "
     This setting controls whether local accounts can be used for remote administration via network logon (e.g., NET USE, connecting to C$, etc.). Local accounts are at high risk for credential theft when the same account and password is configured on multiple systems. Enabling this policy significantly reduces that risk.
@@ -4533,7 +4533,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.9.52.3.3.2_L1_Ensure_Do_not_all
   end
 end
 
-control "xccdf_org.cisecurity.benchmarks_rule_18.9.52.3.9.1_L1_Ensure_Always_prompt_for_password_upon_connection_is_set_to_Enabled" do
+skip_control "xccdf_org.cisecurity.benchmarks_rule_18.9.52.3.9.1_L1_Ensure_Always_prompt_for_password_upon_connection_is_set_to_Enabled" do
   title "(L1) Ensure 'Always prompt for password upon connection' is set to 'Enabled'"
   desc  "
     This policy setting specifies whether Terminal Services always prompts the client computer for a password upon connection. You can use this policy setting to enforce a password prompt for users who log on to Terminal Services, even if they already provided the password in the Remote Desktop Connection client.
@@ -4543,6 +4543,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.9.52.3.9.1_L1_Ensure_Always_pro
     Rationale: Users have the option to store both their username and password when they create a new Remote Desktop connection shortcut. If the server that runs Terminal Services allows users who have used this feature to log on to the server but not enter their password, then it is possible that an attacker who has gained physical access to the user's computer could connect to a Terminal Server through the Remote Desktop connection shortcut, even though they may not know the user's password.
   "
   impact 1.0
+
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services") do
     skip it { should have_property "fPromptForPassword" }
     skip its("fPromptForPassword") { should cmp == 1 }
