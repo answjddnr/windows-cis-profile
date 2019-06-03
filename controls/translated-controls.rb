@@ -3546,8 +3546,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.4.4.1_L1_Set_NetBIOS_node_type_
     
     Rationale: In order to help mitigate the risk of NetBIOS Name Service (NBT-NS) poisoning attacks, setting the node type to P-node will prevent the system from sending out NetBIOS broadcasts.
   "
-  impact 1.0
-  describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Netbt\\Parameters") do
+  skip impact 1.0
+  skip describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Netbt\\Parameters") do
     skip it { should have_property "NodeType" }
     skip its("NodeType") { should cmp == 2 }
   end
