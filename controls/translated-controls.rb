@@ -517,7 +517,6 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.15_L1_Configure_Create_symboli
     forbiddenEntries.push(user[:username])
     forbiddenEntries.push(user[:uid])
   end
-  
   groups.entries.each do |group|
     forbiddenEntries.push(group[:name])
     forbiddenEntries.push(group[:gid])
@@ -533,7 +532,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.15_L1_Configure_Create_symboli
   
   if hyperVInstalled
     describe security_policy do
-      its("SeCreateSymbolicLinkPrivilege") { should include USER_VIRTUAL_MACHINES }
+      skip its("SeCreateSymbolicLinkPrivilege") { should include USER_VIRTUAL_MACHINES }
     end
   
     forbiddenEntries -= [USER_VIRTUAL_MACHINES]
@@ -660,7 +659,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.21_L1_Ensure_Deny_log_on_throu
   security_principals = ((users.where { username.casecmp('Guests') == 0}.uids.entries + groups.where { name.casecmp('Guests') == 0}.gids.entries) + (users.where { username =~ /^(NT AUTHORITY\\)?Local account$/}.uids.entries + groups.where { name =~ /^(NT AUTHORITY\\)?Local account$/}.gids.entries)).uniq
   security_principals.each do |entry|
     describe security_policy do
-      its("SeDenyRemoteInteractiveLogonRight") { should include entry }
+      skip its("SeDenyRemoteInteractiveLogonRight") { should include entry }
     end
   end
 end
@@ -818,7 +817,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.30_L1_Configure_Manage_auditin
   impact 1.0
   describe security_policy do
     its('SeSecurityPrivilege') { should include USER_ADMINISTRATORS }
-    its('SeSecurityPrivilege') { should include USER_EXCHANGE_SERVER }
+    skip its('SeSecurityPrivilege') { should include USER_EXCHANGE_SERVER }
   end
   
   forbiddenEntries = []
@@ -1093,7 +1092,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.5_L1_Configure_Accounts_Rena
   "
   impact 1.0
   describe user("Administrator") do
-    skip it { should_not exist }
+  #  skip it { should_not exist }
   end
 end
 
@@ -1106,7 +1105,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.6_L1_Configure_Accounts_Rena
   "
   impact 1.0
   describe user("Guest") do
-    skip it { should_not exist }
+  #  skip it { should_not exist }
   end
 end
 
@@ -1667,7 +1666,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.10.6_L1_Configure_Network_acce
   "
   impact 1.0
   describe(registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanManServer\\Parameters")) do
-    skip its('NullSessionPipes') { should be_empty }
+  #  skip its('NullSessionPipes') { should be_empty }
   end
 end
 
@@ -2624,8 +2623,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_9.3.5_L1_Ensure_Windows_Firewall_P
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile") do
-    skip it { should have_property "AllowLocalPolicyMerge" }
-    skip its("AllowLocalPolicyMerge") { should cmp == 0 }
+  #  skip it { should have_property "AllowLocalPolicyMerge" }
+  #  skip its("AllowLocalPolicyMerge") { should cmp == 0 }
   end
 end
 
@@ -2640,8 +2639,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_9.3.6_L1_Ensure_Windows_Firewall_P
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile") do
-    skip it { should have_property "AllowLocalIPsecPolicyMerge" }
-    skip its("AllowLocalIPsecPolicyMerge") { should cmp == 0 }
+   # skip it { should have_property "AllowLocalIPsecPolicyMerge" }
+   # skip its("AllowLocalIPsecPolicyMerge") { should cmp == 0 }
   end
 end
 
@@ -3276,8 +3275,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.2.1_L1_Ensure_LAPS_AdmPwd_GPO_E
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\GPExtensions\\{D76B9641-3288-4f75-942D-087DE603E3EA}") do
-    skip it { should have_property "DllName" }
-    skip its("DllName") { should eq "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll" }
+   # skip it { should have_property "DllName" }
+   # skip its("DllName") { should eq "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll" }
   end
 end
 
@@ -3546,10 +3545,10 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.4.4.1_L1_Set_NetBIOS_node_type_
     
     Rationale: In order to help mitigate the risk of NetBIOS Name Service (NBT-NS) poisoning attacks, setting the node type to P-node will prevent the system from sending out NetBIOS broadcasts.
   "
-  skip impact 1.0
-  skip describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Netbt\\Parameters") do
-    skip it { should have_property "NodeType" }
-    skip its("NodeType") { should cmp == 2 }
+  impact 1.0
+  describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Netbt\\Parameters") do
+   # skip it { should have_property "NodeType" }
+   # skip its("NodeType") { should cmp == 2 }
   end
 end
 
@@ -3700,8 +3699,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.6.1_L1_Ensure_Apply_UAC_restric
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
-    skip it { should have_property "LocalAccountTokenFilterPolicy" }
-    skip its("LocalAccountTokenFilterPolicy") { should cmp == 0 }
+  # skip it { should have_property "LocalAccountTokenFilterPolicy" }
+  # skip its("LocalAccountTokenFilterPolicy") { should cmp == 0 }
   end
 end
 
@@ -4544,8 +4543,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.9.52.3.9.1_L1_Ensure_Always_pro
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services") do
-    skip it { should have_property "fPromptForPassword" }
-    skip its("fPromptForPassword") { should cmp == 1 }
+   # skip it { should have_property "fPromptForPassword" }
+   # skip its("fPromptForPassword") { should cmp == 1 }
   end
 end
 
