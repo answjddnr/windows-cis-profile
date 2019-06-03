@@ -1023,10 +1023,10 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.1_L1_Ensure_Accounts_Adminis
   "
   impact 1.0
   describe users.where { uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/ } do
-    it { should exist }
+    skip it { should exist }
   end
   describe users.where { uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/ } do
-    it { should be_disabled }
+    skip it { should be_disabled }
   end
 end
 
@@ -1093,7 +1093,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.5_L1_Configure_Accounts_Rena
   "
   impact 1.0
   describe user("Administrator") do
-    it { should_not exist }
+    skip it { should_not exist }
   end
 end
 
@@ -1106,7 +1106,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.6_L1_Configure_Accounts_Rena
   "
   impact 1.0
   describe user("Guest") do
-    it { should_not exist }
+    skip it { should_not exist }
   end
 end
 
@@ -1667,7 +1667,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.10.6_L1_Configure_Network_acce
   "
   impact 1.0
   describe(registry_key("HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\LanManServer\\Parameters")) do
-    its('NullSessionPipes') { should be_empty }
+    skip its('NullSessionPipes') { should be_empty }
   end
 end
 
@@ -1891,8 +1891,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.11.3_L1_Ensure_Network_Securit
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Lsa\\pku2u") do
-    it { should have_property "AllowOnlineID" }
-    its("AllowOnlineID") { should cmp == 0 }
+    skip it { should have_property "AllowOnlineID" }
+    skip its("AllowOnlineID") { should cmp == 0 }
   end
 end
 
@@ -1907,8 +1907,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.11.4_L1_Ensure_Network_securit
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Kerberos\\Parameters") do
-    it { should have_property "SupportedEncryptionTypes" }
-    its("SupportedEncryptionTypes") { should cmp == 2147483644 }
+    skip it { should have_property "SupportedEncryptionTypes" }
+    skip its("SupportedEncryptionTypes") { should cmp == 2147483644 }
   end
 end
 
@@ -1984,8 +1984,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.11.8_L1_Ensure_Network_securit
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\LDAP") do
-    it { should have_property "LDAPClientIntegrity" }
-    its("LDAPClientIntegrity") { should cmp >= 1 }
+    skip it { should have_property "LDAPClientIntegrity" }
+    skip its("LDAPClientIntegrity") { should cmp >= 1 }
   end
 end
 
@@ -2048,8 +2048,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.15.1_L1_Ensure_System_objects_
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Control\\Session Manager\\Kernel") do
-    it { should have_property "ObCaseInsensitive" }
-    its("ObCaseInsensitive") { should cmp == 1 }
+    skip it { should have_property "ObCaseInsensitive" }
+    skip its("ObCaseInsensitive") { should cmp == 1 }
   end
 end
 
@@ -2624,8 +2624,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_9.3.5_L1_Ensure_Windows_Firewall_P
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile") do
-    it { should have_property "AllowLocalPolicyMerge" }
-    its("AllowLocalPolicyMerge") { should cmp == 0 }
+    skip it { should have_property "AllowLocalPolicyMerge" }
+    skip its("AllowLocalPolicyMerge") { should cmp == 0 }
   end
 end
 
@@ -2640,8 +2640,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_9.3.6_L1_Ensure_Windows_Firewall_P
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\Software\\Policies\\Microsoft\\WindowsFirewall\\PublicProfile") do
-    it { should have_property "AllowLocalIPsecPolicyMerge" }
-    its("AllowLocalIPsecPolicyMerge") { should cmp == 0 }
+    skip it { should have_property "AllowLocalIPsecPolicyMerge" }
+    skip its("AllowLocalIPsecPolicyMerge") { should cmp == 0 }
   end
 end
 
@@ -3276,8 +3276,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.2.1_L1_Ensure_LAPS_AdmPwd_GPO_E
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Winlogon\\GPExtensions\\{D76B9641-3288-4f75-942D-087DE603E3EA}") do
-    it { should have_property "DllName" }
-    its("DllName") { should eq "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll" }
+    skip it { should have_property "DllName" }
+    skip its("DllName") { should eq "C:\\Program Files\\LAPS\\CSE\\AdmPwd.dll" }
   end
 end
 
@@ -3548,8 +3548,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.4.4.1_L1_Set_NetBIOS_node_type_
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\Netbt\\Parameters") do
-    it { should have_property "NodeType" }
-    its("NodeType") { should cmp == 2 }
+    skip it { should have_property "NodeType" }
+    skip its("NodeType") { should cmp == 2 }
   end
 end
 
@@ -3700,8 +3700,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.6.1_L1_Ensure_Apply_UAC_restric
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Policies\\System") do
-    it { should have_property "LocalAccountTokenFilterPolicy" }
-    its("LocalAccountTokenFilterPolicy") { should cmp == 0 }
+    skip it { should have_property "LocalAccountTokenFilterPolicy" }
+    skip its("LocalAccountTokenFilterPolicy") { should cmp == 0 }
   end
 end
 
@@ -4544,8 +4544,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_18.9.52.3.9.1_L1_Ensure_Always_pro
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\SOFTWARE\\Policies\\Microsoft\\Windows NT\\Terminal Services") do
-    it { should have_property "fPromptForPassword" }
-    its("fPromptForPassword") { should cmp == 1 }
+    skip it { should have_property "fPromptForPassword" }
+    skip its("fPromptForPassword") { should cmp == 1 }
   end
 end
 
