@@ -532,7 +532,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.15_L1_Configure_Create_symboli
   
   if hyperVInstalled
     describe security_policy do
-      skip its("SeCreateSymbolicLinkPrivilege") { should include USER_VIRTUAL_MACHINES }
+     # skip its("SeCreateSymbolicLinkPrivilege") { should include USER_VIRTUAL_MACHINES }
     end
   
     forbiddenEntries -= [USER_VIRTUAL_MACHINES]
@@ -659,7 +659,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.21_L1_Ensure_Deny_log_on_throu
   security_principals = ((users.where { username.casecmp('Guests') == 0}.uids.entries + groups.where { name.casecmp('Guests') == 0}.gids.entries) + (users.where { username =~ /^(NT AUTHORITY\\)?Local account$/}.uids.entries + groups.where { name =~ /^(NT AUTHORITY\\)?Local account$/}.gids.entries)).uniq
   security_principals.each do |entry|
     describe security_policy do
-      skip its("SeDenyRemoteInteractiveLogonRight") { should include entry }
+    #  skip its("SeDenyRemoteInteractiveLogonRight") { should include entry }
     end
   end
 end
@@ -817,7 +817,7 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.2.30_L1_Configure_Manage_auditin
   impact 1.0
   describe security_policy do
     its('SeSecurityPrivilege') { should include USER_ADMINISTRATORS }
-    skip its('SeSecurityPrivilege') { should include USER_EXCHANGE_SERVER }
+  #  skip its('SeSecurityPrivilege') { should include USER_EXCHANGE_SERVER }
   end
   
   forbiddenEntries = []
@@ -1022,10 +1022,10 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.1.1_L1_Ensure_Accounts_Adminis
   "
   impact 1.0
   describe users.where { uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/ } do
-    skip it { should exist }
+  #  skip it { should exist }
   end
   describe users.where { uid =~ /S\-1\-5\-21\-\d+\-\d+\-\d+\-500/ } do
-    skip it { should be_disabled }
+  #  skip it { should be_disabled }
   end
 end
 
