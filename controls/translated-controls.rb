@@ -1906,8 +1906,8 @@ control "xccdf_org.cisecurity.benchmarks_rule_2.3.11.4_L1_Ensure_Network_securit
   "
   impact 1.0
   describe registry_key("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\System\\Kerberos\\Parameters") do
-    skip it { should have_property "SupportedEncryptionTypes" }
-    skip its("SupportedEncryptionTypes") { should cmp == 2147483644 }
+  #  skip it { should have_property "SupportedEncryptionTypes" }
+  #  skip its("SupportedEncryptionTypes") { should cmp == 2147483644 }
   end
 end
 
